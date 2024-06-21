@@ -59,8 +59,7 @@ if prompt := st.chat_input():
     while True:
         run = client.beta.threads.runs.retrieve(
             thread_id = thread_id,
-            run_id = run_id,
-            model = model
+            run_id = run_id
             )
         if run.status == "completed":
             break
