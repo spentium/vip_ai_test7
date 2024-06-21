@@ -12,7 +12,7 @@ with st.sidebar:
     thread_btn = st.button("Create a new thread")
 
     if thread_btn:
-        thread = client.beta.threads.create()
+        thread = client.beta.threads.create(model="gpt-4o")
         thread_id = thread.id
         st.subheader(f"{thread_id}")
         st.info("Thread created!")
@@ -52,11 +52,13 @@ if prompt := st.chat_input():
         thread_id,
         role="user",
         content=prompt,
+        model="gpt-4o"
     )
 
     run = client.beta.threads.runs.create(
         thread_id=thread_id,
-        assistant_id=assistant_id
+        assistant_id=assistant_id,
+        model="gpt-4o"
     )
 
     run_id = run.id
