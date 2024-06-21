@@ -43,20 +43,21 @@ if prompt := st.chat_input():
         thread_id,
         role="user",
         content=prompt,
-        )
+    )
     
     run = client.beta.threads.runs.create(
-        thread_id = thread_id,
-        assistant_id = assistant_id
-        )
+        thread_id=thread_id,
+        assistant_id=assistant_id,
+        model="GPT-4o"  # Specify the model here
+    )
 
     run_id = run.id
 
     while True:
         run = client.beta.threads.runs.retrieve(
-            thread_id = thread_id,
-            run_id = run_id
-            )
+            thread_id=thread_id,
+            run_id=run_id
+        )
         if run.status == "completed":
             break
         else:
