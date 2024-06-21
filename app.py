@@ -12,6 +12,7 @@ with st.sidebar:
     thread_btn = st.button("Create a new thread")
 
     if thread_btn:
+        thread = client.beta.threads.create()
         thread_id = thread.id
         st.subheader(f"{thread_id}")
         st.info("Thread created!")
