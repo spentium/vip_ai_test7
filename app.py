@@ -19,7 +19,7 @@ with st.sidebar:
         st.subheader(f"{thread_id}")
         st.info("Thread created!")
 
-st.title("💬 Chatbot")
+st.title("💬 VIP AI")
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
