@@ -22,7 +22,7 @@ with st.sidebar:
 st.title("💬 VIP AI")
 
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
+    st.session_state["messages"] = [{"role": "assistant", "content": "저는 AI 인턴입니다. 무엇이든지 시켜주시면, 최선을 다해 답변드리겠습니다."}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
